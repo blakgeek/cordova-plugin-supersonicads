@@ -1,0 +1,12 @@
+repositories {
+    maven {
+        url "https://dl.bintray.com/supersonic/android-sdk"
+   }
+}
+
+cdvPluginPostBuildExtras.add({
+
+	dependencies {
+	    compile 'com.supersonic.sdk:mediationsdk:6.2.2@jar'
+	}
+});
