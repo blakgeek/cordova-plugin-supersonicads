@@ -3,7 +3,13 @@ Add support for [Supersonic Ads](https://www.supersonic.com/) to your Cordova an
 
 ## How do I install it? ##
 
-* If you're like me and using [CLI](http://cordova.apache.org/):
+If you're like me and using [CLI](http://cordova.apache.org/):
+```
+cordova plugin add cordova-plugin-supersonicads
+```
+
+or
+
 ```
 cordova plugin add https://github.com/blakgeek/cordova-plugin-supersonicads
 ```
@@ -13,6 +19,7 @@ or
 ```
 phonegap local plugin add https://github.com/blakgeek/cordova-plugin-supersonicads
 ```
+
 ## How do I use it? ##
 
 ```javascript
@@ -66,10 +73,10 @@ document.addEventListener('deviceready', function() {
 ```
 
 ## Can I just see a working example?
-Yep.  Here you go https://github.com/blakgeek/cordova-plugin-supersonicads-demo
+Yep.  Check out the [demo project](https://github.com/blakgeek/cordova-plugin-supersonicads-demo).  It runs on both Android and iOS.
 
 ## What other events are supported?
-###Interstitial
+### Interstitial
 1. interstitialInitialized
 1. interstitialInitializationFailed
 1. interstitialAvailabilityChanged
@@ -78,7 +85,7 @@ Yep.  Here you go https://github.com/blakgeek/cordova-plugin-supersonicads-demo
 1. interstitialClicked
 1. interstitialClosed
 
-###Offerwall
+### Offerwall
 1. offerwallClosed
 1. offerwallCreditFailed
 1. offerwallCreditReceived
@@ -87,7 +94,7 @@ Yep.  Here you go https://github.com/blakgeek/cordova-plugin-supersonicads-demo
 1. offerwallInitializationFailed
 1. offerwallInitialized
 
-###Rewarded Video
+### Rewarded Video
 1. rewardedVideoRewardReceived
 1. rewardedVideoEnded
 1. rewardedVideoStarted
