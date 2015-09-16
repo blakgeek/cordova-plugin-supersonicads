@@ -1,5 +1,5 @@
 # Supersonic Ads Cordova Plugin
-Add support for Supersonic Ads to your Cordova and Phonegap based mobile apps.
+Add support for [Supersonic Ads](https://www.supersonic.com/) to your Cordova and Phonegap based mobile apps.
 
 ## How do I install it? ##
 
@@ -11,7 +11,7 @@ cordova plugin add https://github.com/blakgeek/cordova-plugin-supersonicads
 or
 
 ```
-phonegap local plugin add https://github.com/blakgeek/cordova-plugin-asupersonicads
+phonegap local plugin add https://github.com/blakgeek/cordova-plugin-supersonicads
 ```
 ## How do I use it? ##
 
@@ -21,23 +21,16 @@ document.addEventListener('deviceready', function() {
 	var ssAds = new SupersonicAds("yo_app_key", "some_unique_userid");
 	
 	// show a rewarded ad
-	ssAds.showRewardedAd("UpHere");
+	ssAds.showRewardedAd();
     	
-	// show a rewarded ad for placement UpHere
-	ssAds.showOfferWall("UpHere");
-	
+	// show a rewarded ad for placement RightHere
+	ssAds.showRewardedAd("RightHere");
+    
 	// show an offerwall
-	ssAds.showRewardedAd("UpHere");
-    	
-	
-	// show an offerwall for placement id OverYonder
-    ssAds.showOfferWall("OverYonder");
+    ssAds.showOfferWall();
     
     // show an interstitial
     ssAds.showInterstitial();
-    
-    // show an interstitial for placement id OutThere
-    ssAds.showInterstitial("OutThere");
     
     // give em some credit
 	window.addEventListener("offerwallCreditReceived", function(e) {
@@ -63,7 +56,7 @@ document.addEventListener('deviceready', function() {
 	window.addEventListener("rewardedVideoRewardedReceived", function(e) {
 		
 		var placement = e.placement;
-		console.log(placement.id);
+		console.log(placement.id); // only available on android
 		console.log(placement.name);
 		console.log(placement.reward);
 		console.log(placement.amount);
@@ -72,7 +65,10 @@ document.addEventListener('deviceready', function() {
 }, false);
 ```
 
-## What other events are supported
+## Can I just see a working example?
+Yep.  Here you go https://github.com/blakgeek/cordova-plugin-supersonicads-demo
+
+## What other events are supported?
 ###Interstitial
 1. interstitialInitialized
 1. interstitialInitializationFailed
@@ -100,3 +96,4 @@ document.addEventListener('deviceready', function() {
 1. rewardedVideoOpened
 1. rewardedVideoInitializationFailed
 1. rewardedVideoInitialized
+1. rewardedVideoFailed

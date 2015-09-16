@@ -22,13 +22,13 @@ import com.supersonic.mediationsdk.sdk.SupersonicFactory;
 public class SupersonicAdsPlugin extends CordovaPlugin {
 
     private static final String TAG = "[SupersonicAdsPlugin]";
-    public static final String EVENT_INTERSTIAL_INITIALIZED = "interstitialInitialized";
-    public static final String EVENT_INTERSTIAL_INIT_FAILED = "interstitialInitializationFailed";
-    public static final String EVENT_INTERSTIAL_AVAILABILITY_CHANGED = "interstitialAvailabilityChanged";
-    public static final String EVENT_INTERSTIAL_SHOWN = "interstitialShown";
-    public static final String EVENT_INTERSTIAL_SHOW_FAILED = "interstitialShowFailed";
-    public static final String EVENT_INTERSTIAL_CLICKED = "interstitialClicked";
-    public static final String EVENT_INTERSTIAL_CLOSED = "interstitialClosed";
+    public static final String EVENT_INTERSTITIAL_INITIALIZED = "interstitialInitialized";
+    public static final String EVENT_INTERSTITIAL_INIT_FAILED = "interstitialInitializationFailed";
+    public static final String EVENT_INTERSTITIAL_AVAILABILITY_CHANGED = "interstitialAvailabilityChanged";
+    public static final String EVENT_INTERSTITIAL_SHOWN = "interstitialShown";
+    public static final String EVENT_INTERSTITIAL_SHOW_FAILED = "interstitialShowFailed";
+    public static final String EVENT_INTERSTITIAL_CLICKED = "interstitialClicked";
+    public static final String EVENT_INTERSTITIAL_CLOSED = "interstitialClosed";
     public static final String EVENT_OFFERWALL_CLOSED = "offerwallClosed";
     public static final String EVENT_OFFERWALL_CREDIT_FAILED = "offerwallCreditFailed";
     public static final String EVENT_OFFERWALL_CREDITED = "offerwallCreditReceived";
@@ -67,13 +67,14 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
                 callbackContext.success();
             } else if (action.equals("showRewardedAd")) {
 
+                // todo: use placement id
                 supersonic.showRewardedVideo();
                 callbackContext.success();
             } else if (action.equals("showInterstitial")) {
 
                 supersonic.showInterstitial();
                 callbackContext.success();
-            } else if (action.equals("showOfferWall")) {
+            } else if (action.equals("showOfferwall")) {
 
                 supersonic.showOfferwall();
                 callbackContext.success();
@@ -349,7 +350,7 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
         public void onInterstitialInitSuccess() {
             // Invoked when Interstitial initialization process completes successfully.
             Log.d(TAG, "onInterstitialInitSuccess");
-            fireEvent(EVENT_INTERSTIAL_INITIALIZED);
+            fireEvent(EVENT_INTERSTITIAL_INITIALIZED);
         }
 
         @Override
@@ -366,7 +367,7 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
                 data.put("error", error);
             } catch (JSONException e) {
             }
-            fireEvent(EVENT_INTERSTIAL_INIT_FAILED, data);
+            fireEvent(EVENT_INTERSTITIAL_INIT_FAILED, data);
         }
 
 
@@ -380,7 +381,7 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
                 data.put("available", available);
             } catch (JSONException e) {
             }
-            fireEvent(EVENT_INTERSTIAL_AVAILABILITY_CHANGED, data);
+            fireEvent(EVENT_INTERSTITIAL_AVAILABILITY_CHANGED, data);
         }
 
 
@@ -388,7 +389,7 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
         public void onInterstitialShowSuccess() {
             //Invoked when the ad was opened and shown successfully.
             Log.d(TAG, "onInterstitialShowSuccess");
-            fireEvent(EVENT_INTERSTIAL_SHOWN);
+            fireEvent(EVENT_INTERSTITIAL_SHOWN);
         }
 
 
@@ -406,14 +407,14 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
                 data.put("error", error);
             } catch (JSONException e) {
             }
-            fireEvent(EVENT_INTERSTIAL_SHOW_FAILED, data);
+            fireEvent(EVENT_INTERSTITIAL_SHOW_FAILED, data);
         }
 
         @Override
         public void onInterstitialAdClicked() {
             //Invoked when the end user clicked on the interstitial ad.
             Log.d(TAG, "onInterstitialAdClicked");
-            fireEvent(EVENT_INTERSTIAL_CLICKED);
+            fireEvent(EVENT_INTERSTITIAL_CLICKED);
         }
 
 
@@ -421,7 +422,7 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
         public void onInterstitialAdClosed() {
             //Invoked when the ad is closed and the user is about to return to the application
             Log.d(TAG, "onInterstitialAdClosed");
-            fireEvent(EVENT_INTERSTIAL_CLOSED);
+            fireEvent(EVENT_INTERSTITIAL_CLOSED);
         }
     };
 }

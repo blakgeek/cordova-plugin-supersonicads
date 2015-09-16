@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="blakgeek-cordova-plugin-supersonicads" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-supersonicads" version="0.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-supersonicads</name>
     <description>Add support for supersonic ads in a Cordova app</description>
     <js-module src="www/supersonicads.js" name="SupersonicAds">
@@ -31,5 +31,31 @@
         <source-file src="src/android/SupersonicAdsPlugin.java" target-dir="src/com/blakgeek/cordova/plugin/supersonicads" />
         <framework src="src/android/supersonicads.gradle" custom="true" type="gradleReference" />
         <framework src="com.google.android.gms:play-services-ads:+" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="SupersonicAdsPlugin">
+                <param name="ios-package" value="SupersonicAdsPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/SupersonicAdsPlugin.h" />
+        <source-file src="src/ios/SupersonicAdsPlugin.m" />
+        <framework src="src/ios/Supersonic.framework" custom="true" />
+        <framework src="Foundation.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="CoreVideo.framework" />
+        <framework src="QuartzCore.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="libz.dylib" />
+        <framework src="StoreKit.framework" />
+        <framework src="AdSupport.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="Security.framework" />
     </platform>
 </plugin>

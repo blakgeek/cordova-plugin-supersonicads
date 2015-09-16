@@ -1,6 +1,4 @@
-function SupersonicAds(appKey, userId, config) {
-
-	config = config || {};
+function SupersonicAds(appKey, userId) {
 
 	cordova.exec(null, null, 'SupersonicAdsPlugin', 'init', [appKey, userId]);
 
@@ -8,12 +6,12 @@ function SupersonicAds(appKey, userId, config) {
 		cordova.exec(successCallback, failureCallback, 'SupersonicAdsPlugin', 'showRewardedAd', [placementName]);
 	};
 
-	this.showInterstitial = function(placementName, successCallback, failureCallback) {
-		cordova.exec(successCallback, failureCallback, 'SupersonicAdsPlugin', 'showInterstitial', [placementName]);
+	this.showInterstitial = function(successCallback, failureCallback) {
+		cordova.exec(successCallback, failureCallback, 'SupersonicAdsPlugin', 'showInterstitial', []);
 	};
 
-	this.showOfferWall = function(placementName, successCallback, failureCallback) {
-		cordova.exec(successCallback, failureCallback, 'SupersonicAdsPlugin', 'showOfferWall', [placementName]);
+	this.showOfferwall = function(successCallback, failureCallback) {
+		cordova.exec(successCallback, failureCallback, 'SupersonicAdsPlugin', 'showOfferwall', []);
 	};
 
 }
