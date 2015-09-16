@@ -67,8 +67,11 @@ public class SupersonicAdsPlugin extends CordovaPlugin {
                 callbackContext.success();
             } else if (action.equals("showRewardedAd")) {
 
-                // todo: use placement id
-                supersonic.showRewardedVideo();
+                if (args.isNull(0)) {
+                    supersonic.showRewardedVideo();
+                } else {
+                    supersonic.showRewardedVideo(args.optString(0));
+                }
                 callbackContext.success();
             } else if (action.equals("showInterstitial")) {
 
