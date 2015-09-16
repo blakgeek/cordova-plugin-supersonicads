@@ -60,7 +60,7 @@ document.addEventListener('deviceready', function() {
 	}, false);
 	
 	// reward your users
-	window.addEventListener("rewardedVideoRewardedReceived", function(e) {
+	window.addEventListener("rewardedVideoRewardReceived", function(e) {
 		
 		var placement = e.placement;
 		console.log(placement.id); // only available on android
