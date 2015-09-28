@@ -1,34 +1,46 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-supersonicads" version="0.2.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-supersonicads" version="0.2.2" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-supersonicads</name>
     <description>Add support for supersonic ads in a Cordova app</description>
     <js-module src="www/supersonicads.js" name="SupersonicAds">
         <clobbers target="SupersonicAds" />
     </js-module>
 
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0" />
+        <engine name="cordova-plugman" version=">=4.2.0" />
+    </engines>
+
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SupersonicAdsPlugin">
-                <param name="android-package" value="com.blakgeek.cordova.plugin.supersonicads.SupersonicAdsPlugin"/>
+                <param name="android-package" value="com.blakgeek.cordova.plugin.supersonicads.SupersonicAdsPlugin" />
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest">
 
-			<uses-permission android:name="android.permission.INTERNET" />
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-		</config-file>
-        
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-        	<activity android:name="com.supersonicads.sdk.controller.ControllerActivity" android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" />
-
-			<activity android:name="com.supersonicads.sdk.controller.InterstitialActivity" android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent" />
-
-			<activity android:name="com.supersonicads.sdk.controller.OpenUrlActivity" android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
 
-        <source-file src="src/android/SupersonicAdsPlugin.java" target-dir="src/com/blakgeek/cordova/plugin/supersonicads" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.supersonicads.sdk.controller.ControllerActivity"
+                android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" />
+
+            <activity android:name="com.supersonicads.sdk.controller.InterstitialActivity"
+                android:configChanges="orientation|screenSize" android:hardwareAccelerated="true"
+                android:theme="@android:style/Theme.Translucent" />
+
+            <activity android:name="com.supersonicads.sdk.controller.OpenUrlActivity"
+                android:configChanges="orientation|screenSize" android:hardwareAccelerated="true"
+                android:theme="@android:style/Theme.Translucent" />
+        </config-file>
+
+        <source-file src="src/android/SupersonicAdsPlugin.java"
+            target-dir="src/com/blakgeek/cordova/plugin/supersonicads" />
         <framework src="src/android/supersonicads.gradle" custom="true" type="gradleReference" />
         <framework src="com.google.android.gms:play-services-ads:+" />
     </platform>
@@ -36,7 +48,7 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="SupersonicAdsPlugin">
-                <param name="ios-package" value="SupersonicAdsPlugin"/>
+                <param name="ios-package" value="SupersonicAdsPlugin" />
             </feature>
         </config-file>
         <header-file src="src/ios/SupersonicAdsPlugin.h" />
